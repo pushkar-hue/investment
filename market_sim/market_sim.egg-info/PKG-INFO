@@ -1,0 +1,126 @@
+Metadata-Version: 2.1
+Name: market-sim
+Version: 0.1.0
+Summary: Market simulation engine with blockchain consensus
+Home-page: https://www.torbellino.tech/
+Author: Torbellino Tech SL
+Author-email: juan.diez@torbellino.tech
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+
+# Market Dynamics and Trading Simulation Framework
+
+Implements a framework for simulating, analyzing, and learning about financial markets, trading strategies, and blockchain integration.
+
+Currently v0.
+
+## Project Structure
+
+```
+market_sim/
+â”œâ”€â”€ core/                      # Core functionality and base classes
+â”‚   â”œâ”€â”€ data/                 # Data management and storage
+â”‚   â”œâ”€â”€ models/              # Core market models and entities
+â”‚   â””â”€â”€ utils/               # Utility functions and helpers
+â”‚
+â”œâ”€â”€ market/                   # Market simulation components
+â”‚   â”œâ”€â”€ exchange/            # Exchange mechanisms and matching engines
+â”‚   â”œâ”€â”€ agents/              # Trading agents and strategies
+â”‚   â”œâ”€â”€ mechanisms/          # Trading mechanisms (options, warrants, etc.)
+â”‚   â””â”€â”€ dynamics/            # Market dynamics and price formation
+â”‚
+â”œâ”€â”€ strategies/               # Trading strategies implementation
+â”‚   â”œâ”€â”€ traditional/         # Classical trading strategies
+â”‚   â”œâ”€â”€ hft/                 # High-frequency trading strategies
+â”‚   â””â”€â”€ ml/                  # Machine learning based strategies
+â”‚
+â”œâ”€â”€ simulation/              # Simulation framework
+â”‚   â”œâ”€â”€ engine/             # Simulation engine and time management
+â”‚   â”œâ”€â”€ scenarios/          # Pre-defined simulation scenarios
+â”‚   â””â”€â”€ results/            # Results analysis and visualization
+â”‚
+â”œâ”€â”€ blockchain/              # Blockchain integration
+â”‚   â”œâ”€â”€ ethereum/           # Ethereum specific implementations
+â”‚   â”œâ”€â”€ consensus/          # Consensus mechanisms
+â”‚   â””â”€â”€ contracts/          # Smart contracts
+â”‚
+â”œâ”€â”€ analysis/                # Analysis tools and utilities
+â”‚   â”œâ”€â”€ metrics/            # Performance and risk metrics
+â”‚   â”œâ”€â”€ visualization/      # Data visualization tools
+â”‚   â””â”€â”€ reports/            # Report generation
+â”‚
+â”œâ”€â”€ api/                     # API interfaces
+â”‚   â”œâ”€â”€ rest/               # REST API
+â”‚   â””â”€â”€ websocket/          # WebSocket API
+â”‚
+â”œâ”€â”€ ui/                      # User interfaces
+â”‚   â”œâ”€â”€ web/                # Web interface
+â”‚   â”œâ”€â”€ cli/                # Command-line interface
+â”‚   â””â”€â”€ desktop/            # Desktop application
+â”‚
+â””â”€â”€ tests/                   # Test suite
+    â”œâ”€â”€ unit/               # Unit tests
+    â”œâ”€â”€ integration/        # Integration tests
+    â””â”€â”€ performance/        # Performance tests
+```
+
+## Features
+
+### Market Simulation
+- Real-time market simulation with configurable parameters
+- Multiple asset types and trading mechanisms
+- Price formation and order book management
+- Trading agent framework with customizable strategies
+
+### Trading Mechanisms
+- Stock trading with various order types
+- Options and warrants simulation
+- Short selling and margin trading
+- Custom mechanism creation framework
+
+### High-Frequency Trading
+- Ultra-low latency framework
+- Order execution optimization
+- Market making strategies
+- Statistical arbitrage
+
+### Blockchain Integration
+- Ethereum smart contract integration
+- Consensus mechanism simulation
+- Cross-chain trading strategies
+- DeFi protocol integration
+
+### Learning Environment
+- Interactive tutorials and scenarios
+- Strategy backtesting framework
+- Performance analytics
+- Risk management tools
+
+## Getting Started
+
+1. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+2. Run tests:
+```bash
+# Run all tests
+pytest
+
+# Run specific test categories
+pytest tests/unit/
+pytest tests/integration/
+pytest tests/performance/
+
+# Run with coverage
+pytest --cov=market_sim
+
+# Run specific test file
+pytest tests/integration/test_market_making.py
+```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

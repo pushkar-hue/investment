@@ -16,6 +16,7 @@ import logging
 from core.models.base import Order, Trade, Asset
 from market.exchange.matching_engine import MatchingEngine
 from market.agents.base_agent import BaseAgent
+from blockchain.consensus.streamlet import StreamletConsensus
 
 class SimulationEvent:
     def __init__(self, timestamp: datetime, event_type: str, data: Any):
@@ -35,7 +36,7 @@ class MarketSimulation:
         self.end_time = end_time
         self.time_step = time_step
         self.current_time = start_time
-        
+        self.consensus = StreamletConsensus()
         # Components
         self.exchanges: Dict[str, MatchingEngine] = {}
         self.agents: Dict[str, BaseAgent] = {}
@@ -152,6 +153,9 @@ class MarketSimulation:
         
         while self.current_time <= self.end_time:
             # Process scheduled events
+            if int((self.current_time - self.start_time).total_seconds() * 1000) % 500 == 0:
+                self.consensus.run_epoch()
+
             while self.event_queue and self.event_queue[0].timestamp <= self.current_time:
                 event = heapq.heappop(self.event_queue)
                 self._process_event(event)
@@ -168,7 +172,11 @@ class MarketSimulation:
             self.current_time += self.time_step
         
         self.logger.info("Simulation completed")
-        return self._get_simulation_results()
+        consensus_data = self.consensus.visualize_data()
+        return {
+            **self._get_simulation_results(),
+            "consensus_data": consensus_data
+        }
     
     def _process_event(self, event: SimulationEvent) -> None:
         """Process a simulation event."""

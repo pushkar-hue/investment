@@ -1,0 +1,2 @@
+[console_scripts]
+run-consensus = simulation.scenarios.consensus_scenario:main
